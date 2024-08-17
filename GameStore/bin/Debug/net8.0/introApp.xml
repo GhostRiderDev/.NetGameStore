@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>introApp</name>
+    </assembly>
+    <members>
+        <member name="T:introApp.migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:introApp.migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:introApp.migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:introApp.migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:introApp.migrations.SeedGenres">
+            <inheritdoc />
+        </member>
+        <member name="M:introApp.migrations.SeedGenres.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:introApp.migrations.SeedGenres.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:introApp.migrations.SeedGenres.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:app.controller.GameController.DeleteGame(System.Int32,app.data.GameStoreContext)">
+             <summary>
+             Deletes a specific Game.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Todo
+                 {
+                    "id": 1,
+                    "name": "Item #1",
+                    "isComplete": true
+                 }
+            
+             </remarks>
+             <param name="id"></param>
+             <returns>An IActionResult indicating the result of the operation.</returns>
+             <response code="204">If the game was delete sucessfully</response>
+             <response code="404">Returns if not exits game</response>
+        </member>
+        <member name="M:app.entity.Game.ToString">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
