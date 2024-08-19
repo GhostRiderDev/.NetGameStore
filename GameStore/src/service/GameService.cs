@@ -2,15 +2,17 @@ using app.data;
 using app.dto;
 using app.entity;
 using app.mapper;
+using app.repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace app.service;
 
-public class GameService
+public class GameService(IGameRepository gameRepository) : IGameService
 {
-  public async Task<List<GameDto>> FindGames(GameStoreContext dbContext)
+  private IGameRepository gameRepository = gameRepository;
+  public async Task<List<GameDto>> FindGames()
   {
-    return await dbContext.Games.Include(game => game.Genre)
+    return await gameRepository.FindGames()
                               .Select(game => game.toDto())
                               .AsNoTracking()
                               .ToListAsync();

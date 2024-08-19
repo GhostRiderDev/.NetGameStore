@@ -139,3 +139,4 @@ D:\cos4h\C#\intro_casal\App001\GameStore\bin\Debug\net8.0\Swashbuckle.AspNetCore
 D:\cos4h\C#\intro_casal\App001\GameStore\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\cos4h\C#\intro_casal\App001\GameStore\bin\Debug\net8.0\introApp.xml
 D:\cos4h\C#\intro_casal\App001\GameStore\obj\Debug\net8.0\introApp.xml
+D:\cos4h\C#\intro_casal\App001\GameStore\obj\Debug\net8.0\introApp.sourcelink.json

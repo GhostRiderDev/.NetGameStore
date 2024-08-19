@@ -2,11 +2,12 @@ using app.data;
 using Microsoft.EntityFrameworkCore;
 using config;
 using app.service;
+using app.repository;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-string? datasource = builder.Configuration.GetConnectionString("DBConnString");
+string? datasource = builder.Configuration.GetConnectionString("DeployDBConnString");
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerDocumentation()
@@ -16,7 +17,8 @@ builder.Services.AddSwaggerDocumentation()
                 .AddProblemDetails()
                 .AddCors()
                 .AddAuthorization()
-                .AddScoped<GameService>();
+                .AddScoped<IGameRepository, GameRepository>()
+                .AddScoped<IGameService, GameService>();
 
 var app = builder.Build();
 

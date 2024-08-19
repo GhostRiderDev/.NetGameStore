@@ -9,14 +9,16 @@ namespace app.controller;
 
 [ApiController]
 [Route("games")]
-public class GameController(GameService gameService) : ControllerBase
+public class GameController(IGameService gameServiceInject) : ControllerBase
 {
     const string getGameNameEndpoint = "GetGame";
 
+    private IGameService gameService = gameServiceInject;
+
     [HttpGet("")]
-    public async Task<List<GameDto>> GetGames(GameStoreContext dbContext)
+    public async Task<List<GameDto>> GetGames()
     {
-        return await gameService.FindGames(dbContext);
+        return await gameService.FindGames();
     }
 
     [HttpGet("{id}", Name = getGameNameEndpoint)]
