@@ -13,8 +13,8 @@ WORKDIR /source/GameStore
 RUN dotnet publish -c release -o /app --no-restore
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM mcr.microsoft.com/dotnet/core/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app ./
 EXPOSE 80
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+ENTRYPOINT ["dotnet", "GameStore.dll"]
