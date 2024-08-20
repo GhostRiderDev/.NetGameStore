@@ -6,13 +6,14 @@ WORKDIR /source
 COPY *.sln .
 COPY GameStore/*.csproj ./GameStore/
 COPY GameStoreTest/*.csproj ./GameStoreTest/
-RUN dotnet nuget locals all --clear
+RUN dotnet nuget locals --clear all
 RUN dotnet restore
 
 # copy everything else and build app
 COPY GameStore/. ./GameStore/
 COPY GameStoreTest/. ./GameStoreTest/
 WORKDIR /source/GameStore
+RUN dotnet nuget locals --clear all
 RUN dotnet publish -c release -o /app --no-restore
 
 # final stage/image
