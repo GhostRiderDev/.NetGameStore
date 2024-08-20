@@ -9,7 +9,7 @@ COPY GameStoreTest/*.csproj ./GameStoreTest/
 RUN dotnet nuget locals all --clear
 RUN dotnet restore --ignore-failed-sources
 
-
+# copy everything else and build app
 COPY GameStore/. ./GameStore/
 COPY GameStoreTest/. ./GameStoreTest/
 WORKDIR /source/GameStore
