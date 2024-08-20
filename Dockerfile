@@ -5,10 +5,12 @@ WORKDIR /source
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY GameStore/*.csproj ./GameStore/
+COPY GameStoreTest/*.csproj ./GameStoreTest/
 RUN dotnet restore
 
 # copy everything else and build app
 COPY GameStore/. ./GameStore/
+COPY GameStoreTest/. ./GameStoreTest/
 WORKDIR /source/GameStore
 RUN dotnet publish -c release -o /app --no-restore
 
