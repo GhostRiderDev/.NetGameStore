@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/microsoft-dotnet-core
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mdsol/dotnet80-sdk AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
@@ -9,14 +9,14 @@ COPY GameStoreTest/*.csproj ./GameStoreTest/
 RUN dotnet nuget locals all --clear
 RUN dotnet restore --ignore-failed-sources
 
-# copy everything else and build app
+
 COPY GameStore/. ./GameStore/
 COPY GameStoreTest/. ./GameStoreTest/
 WORKDIR /source/GameStore
 RUN dotnet publish -c release -o /app --no-restore
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mdsol/dotnet80-sdk
 WORKDIR /app
 COPY --from=build /app ./
 EXPOSE 80
