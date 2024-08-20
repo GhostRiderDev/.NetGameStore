@@ -13,7 +13,7 @@ RUN dotnet restore --ignore-failed-sources
 COPY GameStore/. ./GameStore/
 COPY GameStoreTest/. ./GameStoreTest/
 WORKDIR /source/GameStore
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet publish -c release -o /app --no-restore --ignore-failed-sources
 
 # final stage/image
 FROM mdsol/dotnet80-sdk
